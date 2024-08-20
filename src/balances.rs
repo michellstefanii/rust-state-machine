@@ -49,7 +49,7 @@ where
 mod tests {
     #[test]
     fn init_balances() {
-        let mut balances = crate::balances::Pallet::new();
+        let mut balances = super::Pallet::<String, u128>::new();
         assert_eq!(balances.balance(&"Michel".to_string()), 0);
 
         balances.set_balance(&"Michel".to_string(), 10);
@@ -60,7 +60,7 @@ mod tests {
 
     #[test]
     fn transfer_balance() {
-        let mut balances = crate::balances::Pallet::new();
+        let mut balances = super::Pallet::<String, u128>::new();
         let caller = "alice".to_string();
         let to = "bob".to_string();
 
